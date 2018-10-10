@@ -1,6 +1,7 @@
 FROM centos:latest
 RUN yum -y -q install java-1.8.0-openjdk wget
-WORKDIR /tmp/RUN wget https://download.gocd.org/GOCD-GPG-KEY.asc
+WORKDIR /tmp/
+RUN wget https://download.gocd.org/GOCD-GPG-KEY.asc
 RUN wget https://download.gocd.org/binaries/18.9.0-7478/rpm/go-server-18.9.0-7478.noarch.rpm
 RUN rpm --import GOCD-GPG-KEY.asc
 RUN rpm -ivh go-server-18.9.0-7478.noarch.rpm
