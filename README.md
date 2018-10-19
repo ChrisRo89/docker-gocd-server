@@ -1,6 +1,6 @@
 # docker-gocd-server
 
-## Expose ports / volumes
+## Exposed ports / volumes
 
 + 8153-8154/tcp (http, https)
 + /etc/go
