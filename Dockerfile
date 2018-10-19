@@ -1,5 +1,7 @@
 FROM centos:latest
 
+ENV GOCD_VERSION=18.9.0-7478
+
 LABEL maintainer="Christian.Rohr@chrohr-online.de"
 
 WORKDIR /tmp/
@@ -14,7 +16,7 @@ RUN yum -y install java-1.8.0-openjdk
 RUN yum clean all
 
 RUN rpm --import GOCD-GPG-KEY.asc
-RUN rpm -ivh go-server-18.9.0-7478.noarch.rpm
+RUN rpm -ivh go-server-${GOCD_VERSION}.noarch.rpm
 
 RUN rm -rf /tmp/
 
