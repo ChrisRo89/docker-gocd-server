@@ -8,7 +8,7 @@ WORKDIR /tmp/
 
 RUN curl https://www.centos.org/keys/RPM-GPG-KEY-CentOS-7 --output RPM-GPG-KEY-CentOS-7
 RUN curl https://download.gocd.org/GOCD-GPG-KEY.asc --output GOCD-GPG-KEY.asc
-RUN curl https://download.gocd.org/binaries/18.9.0-7478/rpm/go-server-18.9.0-7478.noarch.rpm --output go-server-18.9.0-7478.noarch.rpm
+RUN curl https://download.gocd.org/binaries/18.9.0-7478/rpm/go-server-${GOCD_VERSION}.noarch.rpm --output go-server-${GOCD_VERSION}.noarch.rpm
 
 RUN rpm --import RPM-GPG-KEY-CentOS-7
 RUN yum -y update
