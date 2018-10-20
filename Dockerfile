@@ -1,6 +1,6 @@
 FROM centos:latest
 
-ENV GOCD_VERSION=18.9.0-7478
+ENV GOCD_VERSION=18.10.0-7703
 
 LABEL maintainer="Christian.Rohr@chrohr-online.de"
 
