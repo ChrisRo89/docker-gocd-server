@@ -4,29 +4,19 @@ services: docker
 env:
 
 install:
-
   - git clone https://github.com/ChrisRo89/docker-gocd-server ~/docker-gocd-server
 
 before_script:
-
   - image="gocd-server" 
 
 script:
 
   - |
-
     (
-
       set -Eeuo pipefail
-
       set -x
-
       docker build -t "$image" .
-
-
     )
 
 after_script:
-
   - docker images
-
