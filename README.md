@@ -1,5 +1,7 @@
 # docker-gocd-server
 
+[![Build Status](https://travis-ci.org/ChrisRo89/docker-gocd-server.svg?branch=master)](https://travis-ci.org/ChrisRo89/docker-gocd-server)
+
 ## Exposed ports / volumes
 
 + 8153-8154/tcp (http, https)
