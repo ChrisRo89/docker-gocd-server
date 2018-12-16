@@ -6,17 +6,15 @@ LABEL maintainer="Christian.Rohr@chrohr-online.de"
 
 WORKDIR /tmp/
 
-RUN curl https://www.centos.org/keys/RPM-GPG-KEY-CentOS-7 --output RPM-GPG-KEY-CentOS-7
-RUN curl https://download.gocd.org/GOCD-GPG-KEY.asc --output GOCD-GPG-KEY.asc
-RUN curl https://download.gocd.org/binaries/${GOCD_VERSION}/rpm/go-server-${GOCD_VERSION}.noarch.rpm --output go-server-${GOCD_VERSION}.noarch.rpm
+RUN curl https://download.gocd.org/GOCD-GPG-KEY.asc --output GOCD-GPG-KEY.asc && \
+    curl https://download.gocd.org/binaries/${GOCD_VERSION}/rpm/go-server-${GOCD_VRSION}.noarch.rpm --output go-server-${GOCD_VERSION}.noarch.rpm && \
+    rpm --import GOCD-GPG-KEY.asc && \
+    rpm -ivh go-server-${GOCD_VERSION}.noarch.rpm
 
-RUN rpm --import RPM-GPG-KEY-CentOS-7
-RUN yum -y update
-RUN yum -y install java-1.8.0-openjdk
-RUN yum clean all
-
-RUN rpm --import GOCD-GPG-KEY.asc
-RUN rpm -ivh go-server-${GOCD_VERSION}.noarch.rpm
+RUN curl https://www.centos.org/keys/RPM-GPG-KEY-CentOS-7 --output RPM-GPG-KEY-CentOS-7 && \
+    rpm --import RPM-GPG-KEY-CentOS-7 && \
+    yum -y install java-1.8.0-openjdk && \
+    yum clean all
 
 RUN rm -rf /tmp/
 
